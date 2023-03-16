@@ -1,0 +1,393 @@
+{%extends "homepage.html"%}
+{%block content%}
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&display=swap");
+    
+    /* general styling */
+    /**,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin-top: 0px;
+    }*/
+    
+    /*body {
+      /*margin-top: 0px;*/
+      /*display: flex;
+      align-items: center;
+      justify-content: center;
+      /*margin: 0;
+      min-height: 100vh;
+      font-family: "Red Hat Display", sans-serif;
+      font-size: 1rem;
+      color: hsl(224, 23%, 55%);
+      /*background-image: url("https://kellychi22.github.io/frontend-mentor-solutions/05-order-summary-component/images/pattern-background-mobile.svg");
+    
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-color: hsl(225, 100%, 96%);
+    }*/
+    /*body{
+      /*background-color: rgb(13, 13, 12);
+      background-image: url("media/Images/back.jpg");
+      background-size: cover;
+    }*/
+    #d{
+        background-image: url("/media/Images/back.jpg");
+        background-size: cover;   
+        height: 750px;
+
+    }
+   
+    img {
+      max-width: 100%;
+      display: block;
+    }
+    
+    h1,
+    h2,
+    p {
+      margin: 0;
+    }
+    
+    .btn {
+      cursor: pointer;
+      border: none;
+      border-radius: 1em;
+      font-family: "Red Hat Display", sans-serif;
+      font-size: 0.9rem;
+    }
+    
+    /* separate styling */
+   
+    .card {
+      
+      width: 31rem;
+      border-radius: 1.2rem;
+      overflow: hidden;
+      box-shadow: 1em 1em 3em rgba(0 0 0/ 0.1);
+      background-color: #fff;
+      transition: transform 300ms ease;
+      
+     
+    }
+    
+    .card:hover {
+      transform: scale(1.03);
+    }
+    
+    .card__img__container {
+      max-width: 100%;
+      height: 1%;
+
+    }
+    
+    .card__content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      padding: 1.5rem;
+    }
+    
+    .card__title {
+      margin-top: 0.5em;
+      color: hsl(223, 47%, 23%);
+      font-weight: 900;
+    }
+    
+    .card__desc {
+      margin: 1em 1.5em 1.5em;
+      line-height: 1.5em;
+    }
+    
+    .plan__info {
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding: 1em;
+      margin-bottom: 1.5em;
+      border-radius: 1em;
+      background-color: hsl(225, 100%, 98%);
+    }
+    
+    .plan__icon {
+      height: 100%;
+    }
+    
+    .plan__detail {
+      margin-left: 1.25em;
+      text-align: start;
+    }
+    
+    .plan__title {
+      margin-bottom: 0.25em;
+      color: hsl(223, 47%, 23%);
+      font-size: 0.9rem;
+    }
+    
+    .plan__btn {
+      position: absolute;
+      right: 1.5em;
+      color: hsl(245, 75%, 52%);
+      background-color: transparent;
+      font-weight: 700;
+      text-decoration: underline;
+    }
+    
+    .plan__btn:hover {
+      color: hsl(245, 75%, 70%);
+      text-decoration: none;
+    }
+    
+    .pay__btn {
+      padding: 1.25em 2em;
+      box-shadow: 0 0.5em 2em hsla(245, 75%, 52%, 0.4);
+      color: #fff;
+      background-color: hsl(245, 75%, 52%);
+      font-weight: 700;
+    }
+    
+    .pay__btn:hover {
+      background-color: hsl(245, 75%, 70%);
+    }
+    
+    .cancel__btn {
+      padding: 1em 2em;
+      margin-top: 1em;
+      color: hsl(224, 23%, 55%);
+      background-color: transparent;
+      font-weight: 700;
+    }
+    
+    .cancel__btn:hover {
+      color: hsl(223, 47%, 23%);
+    }
+    
+    /* attribution styling */
+    
+    .attribution {
+      position: absolute;
+      bottom: 0;
+      opacity: 0.9;
+    }
+    
+    .attribution a {
+      color: hsl(245, 75%, 52%);
+      text-decoration: underline;
+    }
+    
+    .attribution a:hover {
+      color: hsl(245, 75%, 70%);
+    }
+    
+    @media (min-width: 600px) {
+      body {
+        background-image: url();
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+    }
+    </style>
+    <div id="d">
+    <form method="post" action="/makepayment">
+        {%csrf_token%}
+        <br><br><br><br><br><br>
+        <main style="justify-content: center;align-items: center;display: flex;margin-top: 0px;">
+            <article class="card" >
+              <div class="card__img__container">
+                <img class="card__img" src="{{room.rimage.url}}" alt="dancing-with-music-illustration" style="height:3.5cm;width:9cm">
+              </div>
+              <div class="card__content">
+                <h1 class="card__title">Booking Summary</h1>
+                <p class="card__desc">Room no: {{room.rno}}<br>Check In: {{check_in}}<br>Check Out:  {{check_out}}<br></p>
+          
+                <div class="plan__info">
+                  <img class="plan__icon" src="media/Images/rup.jpg" style="height: 1cm;width: 1cm;">
+                  <div class="plan__detail">
+                    <h2 class="plan__title" >Price</h2>
+                    <p class="plan__price">{{price}} INR</p>
+                  </div>
+                
+                  <input type="hidden" name="rno" value="{{room.rno}}">
+                  <input type="hidden" name="check_in" value="{{check_in}}">
+                  <input type="hidden" name="check_out" value="{{check_out}}">
+                  <input type="hidden" name="price" value="{{price}}">
+                <input type="hidden" name="rdescription" value="{{room.rdescription}}"/>
+                <input type="hidden" name="rservices" value="{{room.rservices}}"/>
+                <input type="hidden" name="catk" value="{{room.cat.id}}"/>
+                </div>
+                
+                <button class="btn pay__btn" type="submit">Proceed to Payment</button><br>
+                <a href="/viewdetails/{{id}}" style="align-items: center;">Go Back</a>
+                <!--<button class="btn cancel__btn">Go Back</button>-->
+
+
+            </div>
+        </article>
+      </main>
+    </form>
+    </div>
+    
+
+
+{%endblock%}
+
+
+
+
+
+
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>-->
+
+<!--<style>
+    *{
+        margin:0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family:'Poppins',sans-serif;
+    }
+    .container{
+        width: 100%;
+        height: 150vh;
+        background:teal;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+    /*.btn{
+        padding: 10px 60px;
+        background:teal;
+        border: 0;
+        outline: none;
+        cursor: pointer;
+        font-size: 22px;
+        font-weight: 500;
+        border-radius: 30px;
+    }*/
+    .popup{
+        width: 400px;
+        background: #fff;
+        border-radius: 6px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%) ;         /*with scale it becomes very small*/
+        text-align: center;
+        padding: 0 30px 30px;   /*top, leftright bottom*/
+        color: #333;
+        visibility: visible;
+        transition: transform 0.1s,top 0.1s;
+    }
+    /*.open-popup{
+        visibility:visible;
+        top: 50%;
+        transform: translate(-50%,-50%) scale(1);
+    }*/
+
+
+
+    .popup img{
+        width: 100px;
+        margin-top: -50px;
+        border-radius: 50%;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    .popup h2{
+        font-size: 38px;
+        font-weight: 500;
+        margin: 30px 0 10px;
+    
+
+    }
+    #h{
+        width: 100%;
+        margin-top: 50px;
+        padding: 10px 0;
+        background:rgb(64, 177, 214);
+        color: white;
+        border: 0;
+        outline: none;
+        font-size: 18px;
+        border-radius: 4px;
+        cursor: pointer;
+        box-shadow: 0 5px 5px rgba(0,0,0,0.2);
+    }
+
+    .popup table{
+        font-size: 17px;
+        font-weight: 500;
+        margin: 30px 70px 10px;
+        align-items: center;
+        justify-content: center;
+        
+    }
+
+</style>
+<body>
+<form method="post" action="/makepayment">
+    {%csrf_token%}
+    <div class="container">
+        <!--<button type="submit" class="btn" id="modal"></button>
+        <div class="popup" id="popup">
+            <img src="media/Images/rup.jpg">
+            <table border="1">
+                <tr>
+                    <td >Room No:</td>
+                    <td >{{rno}} <input type="hidden" name="rno" value="{{room.rno}}"></td>
+
+                </tr>
+                <tr>
+                    <td >Check_In:</td>
+                    <td >{{check_in}}<input type="hidden" name="check_in" value="{{check_in}}"></td>
+                </tr>
+                <tr>
+                    <td >Check_Out:</td>
+                    <td >{{check_out}}<input type="hidden" name="check_out" value="{{check_out}}"></td>
+                </tr>
+                <tr>
+                    <td >Rprice:</td>
+                    <td >{{rprice}}INR<input type="hidden" name="rprice" value="{{room.rprice}}"></td>
+                </tr>
+                </tr>
+            </table>
+            <input type="hidden" name="rdescription" value="{{room.rdescription}}"/>
+            <input type="hidden" name="rservices" value="{{room.rservices}}"/>
+            <input type="hidden" name="catk" value="{{room.cat.id}}"/>
+            <!--<button type="submit" class="bun">Back</button>
+            <button type="submit" id="h">Proceed to payment</button>
+            <a href="/viewdetails/{{id}}" style="align-items: center;">Go Back</a>
+        </div>
+
+    </div>
+
+<!--<script type="text/javascript">
+    window.onload=function(){
+        document.getElementById("modal").click();
+    };
+    const popup=document.querySelector('.popup');
+    const btn=document.querySelector('.btn');
+    const bun=document.querySelector('.bun');
+
+    btn.addEventListener('click', function() {
+        popup.style.transform = 'translate(-50% ,-50% )';
+        popup.style.visibility = 'visible'
+        popup.style.top='50%'
+    });
+    /*bun.addEventListener('click', function() {
+        popup.style.transform = 'translate(-50%,-50%,scale(0.1))';
+        popup.style.visibility='hidden'
+        popup.style.top='0%'
+    });*/
+</script>-->
+

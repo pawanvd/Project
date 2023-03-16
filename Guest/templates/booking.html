@@ -1,0 +1,51 @@
+{%extends "homepage.html"%}
+{%block content%}
+<style>
+    #h{
+        background-image: url("/media/Images/back.jpg");
+        background-size: cover;
+       /*background-color:rgb(90, 147, 128);*/
+       height: 750px;
+    }
+    .book:hover {
+      transform: scale(1.10);
+  }
+   </style>
+   <div id="h">
+       <h2 style="margin-top:0px">l</h2><br><br><br> 
+       <form method="post" action="/booknow">
+       {%csrf_token%}
+       <table class="table" border="3" style="margin-left: 100px;width: 1300px;color: black;background-color:teal;">
+           <tr>
+               <td style="font-style:italic ;font-size: larger;">Category</td>
+               <td>{{room.cat}}<input type="hidden" name="catk" value="{{room.cat.id}}"></td>
+           </tr>
+           <tr><td style="font-style:italic ;font-size: larger;">Room No</td>
+               <td>{{room.rno}}<input type="hidden" name="rno" value="{{room.rno}}"></td>
+   
+           </tr>  
+           <tr>
+               <td style="font-style:italic ;font-size: larger;">Price</td>
+               <td>{{room.rprice}} INR<input type="hidden" name="rprice" value="{{room.rprice}}"></td>
+           </tr>
+           <tr>
+               <td style="font-style:italic ;font-size: larger;">Room Description</td>
+               <td>{{room.rdescription}}<input type="hidden" name="rdescription" value="{{room.rdescription}}"></td>
+           </tr>
+           <tr>
+               <td style="font-style:italic ;font-size: larger;">Room Services</td>
+               <td>{{room.rservices}}<input type="hidden" name="rservices" value="{{room.rservices}}"></td>
+           </tr>
+           <tr ><td colspan="2"><center><img src="{{room.rimage.url}}""></center></td></tr>
+           <tr><td style="font-style:italic ;font-size: larger;">ChecK In</td>
+                <td>{{check_in}}<input type="hidden" name="check_in" value="{{check_in}}"></td>
+            </tr>
+            <tr><td style="font-style:italic ;font-size: larger;">ChecK Out</td>
+                <td>{{check_out}}<input type="hidden" name="check_out" value="{{check_out}}"></td>
+            </tr>
+             <tr align="center" style="height:1.3cm"><td colspan="2"><input type="submit" class="book" value="Book Now" style="width:2cm;background-color: green;color: aliceblue;"></td></tr>
+               </table>
+           </center>
+       </form>
+   </div>
+{%endblock%}

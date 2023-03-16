@@ -1,0 +1,123 @@
+{%extends "homepage.html"%}
+{%block content%}
+<style>
+#d{
+    background-image: url("/media/Images/back.jpg");
+    background-size: cover;   
+    height: 750px
+
+}
+
+h1{
+    color:beige;
+    text-align: center;
+    }
+
+.Checkout{
+    max-width: 1000px;
+    margin-left: 300px;
+      
+}   
+
+.f{
+width: 350px;
+margin: 0 auto
+}
+.inner
+
+input,#m{
+    
+    width: 165px;
+    float: left;
+    margin: 0 10px 10px 0;
+}
+    
+
+input ,#b,#m{
+    box-sizing: border-box;
+    display: block;
+    float: left;
+    width: 100%;
+    padding: 20px;
+    font-size: 1.3em;
+    margin-bottom: 20px;
+    outline: none;
+    border: none;
+}
+input{
+    color:gray
+}
+input:hover{
+    transform: scale(1.03);
+}
+#b{
+    color:rgb(246, 239, 239);
+    background:rgb(58, 58, 161);
+    font-weight: bold;
+}
+#b:hover{
+    transform: scale(1.06);
+}
+#m{
+    background-color: rgb(127, 114, 102);
+    color: black;
+    font-weight: bolder;
+    width: 250px;
+    float: right;
+}
+        
+      
+</style>
+<div id="d">
+<h1 style="margin-top: 0;">!</h1>
+<form method="post" action="/payment">
+    {%csrf_token%}
+    <input type="hidden" name="rno" value="{{room.rno}}">
+    <input type="hidden" name="check_in" value="{{check_in}}">
+    <input type="hidden" name="check_out" value="{{check_out}}">
+    <input type="hidden" name="price" value="{{price}}">
+    <input type="hidden" name="rdescription" value="{{room.rdescription}}"/>
+    <input type="hidden" name="rservices" value="{{room.rservices}}"/>
+    <input type="hidden" name="catk" value="{{room.cat.id}}"/>
+
+        
+        <div class="Checkout">
+            <h1 style="text-decoration-style: double;">Payment Details</h1> 
+            <form class="f">
+                <input type="text" name="cardno" placeholder="Card number" required>
+                <input type="text" name="card_name" placeholder="Name on card" required>
+                <div class="inner">
+                    <input type="text" name="expiry" placeholder="MM/YY" required>
+                    <input type="text" name="cvv" placeholder="CVV" required>
+                </div>
+                <div id="m">Pay {{price}} -/
+                </div>
+                <button type="submit" id="b" class="btn btn-success">Pay now </button>
+            </form>
+        </div>
+    </div>
+
+
+</form>
+</div>
+{%endblock%}
+{%block footer%}
+{%endblock%}
+    <!--<table class="table">
+        <tr>
+            <td>Enter Card No</td>
+            <td><input type="text" name="cardno" placeholder="Card No" class="form-control" required/></td>
+        </tr>
+        <tr>
+            <td>Enter CVV</td>
+            <td><input type="text" name="cvv" placeholder="CVV" class="form-control" required/></td>
+        </tr>
+        <tr>
+            <td>Enter Expiry</td>
+            <td><input type="text" name="expiry" placeholder="Expiry" class="form-control" required/></td>
+        </tr>
+        <tr><td>Total Amount</td>
+            <td>{{room.rprice}}</td>
+        </tr>
+        <tr><td><button class="btn btn-success" type="submit">Make Payment</td></tr>
+        </table>  --> 

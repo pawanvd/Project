@@ -1,0 +1,749 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+    <script defer src="{%static '/js/deml.js' %}" type="text/javascript"></script>
+    <script defer src="{%static '/js/pop.js' %}" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<style>
+    
+    html{
+        scroll-behavior: smooth;
+    }
+    body{
+        margin: 0;
+        padding: 0;
+        font-family: Arial;
+
+    }
+    .navbar {
+      margin-bottom: 50px;
+      border-radius: 0;
+      background-color:black;
+      position: fixed;
+      width: 100%;
+      z-index:1;
+    }
+    #sec1{
+        height: 750px;
+        background-image:url('{%static "hh.jpg"%}') ;
+        display: inline-block;
+        width: 100%;
+        background-size: cover;
+        
+    }
+
+    /**/
+
+    .sec h1 {
+        text-align:center; font-size:50px; text-transform:uppercase; color:#ccc; letter-spacing:1px;
+        font-family:"Playfair Display", serif; font-weight:400;
+    }
+    .sec h1 span {
+        margin-top: 5px;
+        font-size:15px; color:rgb(153, 208, 42); word-spacing:1px; font-weight:normal; letter-spacing:2px;
+        text-transform: uppercase; font-family:"Raleway", sans-serif; font-weight:500;
+
+        display: grid;
+        grid-template-columns: 1fr max-content 1fr;
+        grid-template-rows: 27px 0;
+        grid-gap: 20px;
+        align-items: center;
+    }
+
+    .sec h1 span:after,.sec h1 span:before {
+        content: " ";
+        display: block;
+        border-bottom: 1px solid #ccc;
+        border-top: 1px solid #ccc;
+        height: 5px;
+        background-color:#f8f8f8;
+    }
+
+
+    /**/
+    #sec2{
+        height: 750px;
+        background-image: linear-gradient(-225deg, #22E1FF 0%, #1D8FE1 48%, #625EB1 100%)#0b2447;
+        display: inline-block;
+        width: 100%;
+        /*background-color:#59595b;*/
+        background-image: url("/media/Images/back.jpg");
+        background-size: cover;
+    }
+    #sec3{
+        height: 750px;
+        /*background: #0b2447;*/
+        display: inline-block;
+        width: 100%;
+        /*background-color:#59595b;*/
+        background-image: url("/media/Images/back.jpg");
+        background-size: cover;
+    }
+    #sec4{
+        height: 750px;
+       /* background:#59595b;*/
+        display: inline-block;
+        width: 100%;
+        background-image: url("/media/Images/back.jpg");
+        background-size: cover;
+    }
+    #sec5{
+        height: 750px;
+        /*background: #59595b;*/
+        display: inline-block;
+        width: 100%;
+        background-image: url("/media/Images/back.jpg");
+        background-size: cover;
+    }
+    h1,h3{
+        margin: 80px;
+        text-align:center;
+        padding: 0;
+        color: aliceblue;
+    }
+    #m{
+        margin-left: 100px;
+        margin-right: 100px;
+      
+    }
+    .column{
+        float: left;
+        width: 50%;
+        padding: 10px;
+        
+    }
+    .row::after{
+        content: "";
+        clear: both;
+        display: table;
+    
+
+    }
+    .row{
+        margin-left: 100px;
+        margin-right: 100px;
+        
+    }
+
+
+    /*contact form*/
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    }
+
+    /*body{
+    min-height: 100vh;
+    background: url(home3.jpg) no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }*/
+
+    .contact-section{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+
+    .contact-info{
+    color: #fff;
+    max-width: 500px;
+    line-height: 65px;
+    padding-left: 50px;
+    font-size: 18px;
+    }
+
+    .contact-info i{
+    margin-right: 20px;
+    font-size: 25px;
+    }
+
+    .contact-form{
+    max-width: 700px;
+    margin-right: 50px;
+    }
+
+    .contact-info, .contact-form{
+    flex: 1;
+    }
+
+    .contact-form h2{
+    color: #fff;
+    text-align: center;
+    font-size: 35px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    }
+
+    .contact-form .text-box{
+    background: #000;
+    color: #fff;
+    border: none;
+    width: calc(50% - 10px);
+    height: 50px;
+    padding: 12px;
+    font-size: 15px;
+    border-radius: 5px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    opacity: 0.9;
+    }
+
+    .contact-form .text-box:first-child{
+    margin-right: 15px;
+    }
+
+    .contact-form textarea{
+    background: #000;
+    color: #fff;
+    border: none;
+    width: 100%;
+    padding: 12px;
+    font-size: 15px;
+    min-height: 200px;
+    max-height: 400px;
+    resize: vertical;
+    border-radius: 5px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    opacity: 0.9;
+    }
+
+    .contact-form .send-btn{
+    float:right;
+    background:black;
+    color: #fff;
+    border: none;
+    width: 120px;
+    height: 40px;
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    transition-property: background;
+    
+    }
+
+    .contact-form .send-btn:hover{
+    background: #0582E3;
+    }
+
+    /*@media screen and (max-width: 950px){
+    .contact-section{
+        flex-direction: column;
+    }*/
+
+    .contact-info, .contact-form{
+        margin: 30px 50px;
+    }
+
+    .contact-form h2{
+        font-size: 30px;
+    }
+
+    .contact-form .text-box{
+        width: 100%;
+    }
+    /*popup*/
+    /*.btn{
+        padding: 10px 60px;
+        background: #fff;
+        border: 0;
+        outline: none;
+        cursor: pointer;
+        font-size: 22px;
+        font-weight: 500;
+        border-radius: 30px;
+    }*/
+    .popup{
+        width: 400px;
+        background: #fff;
+        border-radius: 6px;
+        position: absolute;
+        top: 0%;
+        left: 50%;
+        transform: translate(-50%,-50%) scale(0.1);         /*with scale it becomes very small*/
+        text-align: center;
+        padding: 0 30px 30px;   /*top, leftright bottom*/
+        color: #333;
+        visibility: hidden;
+        transition: transform 0.4s,top 0.4s;
+    }
+    /*.open-popup{
+        visibility:visible;
+        top: 50%;
+        transform: translate(-50%,-50%) scale(1);
+    }*/
+
+
+
+    .popup img{
+        width: 100px;
+        margin-top: -50px;
+        border-radius: 50%;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    .popup h2{
+        font-size: 38px;
+        font-weight: 500;
+        margin: 30px 0 10px;
+
+    }
+    .popup button{
+        width: 100%;
+        margin-top: 50px;
+        padding: 10px 0;
+        background:limegreen;
+        color: white;
+        border: 0;
+        outline: none;
+        font-size: 18px;
+        border-radius: 4px;
+        cursor: pointer;
+        box-shadow: 0 5px 5px rgba(0,0,0,0.2);
+    }
+
+
+
+
+
+
+    /*testimonial*/
+    @import url("https://fonts.googleapis.com/icon?family=Material+Icons");   /*for arrow icons*/
+    #k{
+        width: 50%;
+        margin: 10px auto;    /*from each side*/
+
+    }
+    .carousel{
+        border: 2px solid rgb(198, 72, 72);   /*carousel border*/
+        height: 200px;
+        position: relative;       /*to adjust  the arrows over them*/
+        overflow: hidden;
+        background-image: linear-gradient(-225deg, #22E1FF 0%, #1D8FE1 48%, #625EB1 100%)
+        /*background-color:rgb(239, 230, 220);*/
+        
+    }
+    .slider{
+        height: 100%;       /*to fill the corousel*/
+        display: flex;      /*for right side one by one*/
+        width: 400%;        /*as 4 sec to cover single*/
+        border: 1px solid rgb(25, 34, 133);
+        transition: all 0.3%;
+        /*transform: translate(-25%)*/;
+    }
+    .slider section{
+        flex-basis: 100%;   /*to cover the corousel*/
+        display: flex;
+        justify-content: center; /*in horizontal center*/
+        align-items: center; /*vertical center*/
+        margin-left: 70px;
+        margin-right: 50px;
+    }
+    .slider section div{
+        align-items: center;
+        justify-content: baseline;
+    }
+    .controls .arrow{
+        position: absolute;
+        top:50%;
+        cursor: pointer;
+    }
+    
+    .arrow.left{
+        left: 10px;
+        font-size: 25px;                            /*over them to move*/
+                                    /*from top middle*/
+                                    /*give clickable symbol*/
+    }
+    .arrow.right{
+        right: 10px;
+        font-size: 25px;                               /*over them to move*/
+                                    /*from top middle*/
+                
+    }
+
+
+/*testimonial images overlay effect*/
+    .imagell{
+        position: relative;      /*with relative helps us to overlay happen*/
+        width: 350px;
+        float: left;             /*to another div move left  andc not down*/
+        padding: 19px;
+  
+    }
+    .imagell__img{
+        display: block;   /*exclude other spaces*/
+        width: 100%;
+        margin-left: 47px;
+    }
+    .imagell__overlay{
+        position:absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0,0.6); /*it makes overlay  60%black*/
+        color: white;
+        display: flex;                        /*set text vertically and horizantally*/                   
+        font-family: 'Quicksand',sans-serif;
+        flex-direction: column;
+        align-items: center;             /*vertically horizantally*/
+        justify-content: center;
+        margin-left: 47px;
+
+        opacity: 0;         /*with this it is hidden by default*/
+        transition: opacity 0.5s;          /*smooth transition*/
+    }
+    .imagell__overlay:hover{
+        opacity: 1;         /*with this it is shown on hover*/
+        
+    }
+
+    .imagell__overlay > *{                 /*with this it is targetting every direct child of the image overlay i.e title desc*/
+        transform: translateY(20px);     /*it is going to push down 20px from original position*/
+        transition: transform 0.5s;
+    }
+    .imagell__overlay:hover> *{
+        transform: translateY(0);
+    }
+
+    .imagell__overlay--blur{                        /*for bluring*/
+        backdrop-filter: blur(5px);
+
+    }
+
+
+    .imagell__title{
+        font-size: 2em;           /*2times the current size*/
+        font-weight: bold;
+
+    }
+    .imagell__desc{
+        font-size: 1.25em;
+        margin-top: 0.25em;
+
+    }
+/*end overlay*/
+</style>
+ 
+ 
+</style>
+<body>
+ 
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>                        
+            </button>
+            {%if "gname" in request.session%}
+            <a class="navbar-brand" href="#">Welcome {{request.session.gname}}</a>
+            {%else%}
+            <a class="navbar-brand" href="/">Paradise</a>
+            {%endif%}
+
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+            <li class="active" ><a href="/">Home</a></li>                                                <! ............."/" is part of root address>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="/">Rooms
+                <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    {%for cat in cats%}
+                    <li><a href="/showrooms/{{cat.id}}">{{cat.category_name}}</a></li>    <!--will select id-->
+                    {%endfor%}
+                </ul>
+            </li>
+            <li><a href="/#sec2">Testimonial</a></li>
+            <li><a href="/#sec3">About Us</a></li>
+            <li><a href="/#sec4">Contact</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                {%if "gname" in request.session %}
+                <li><a href="/mybooking"><span class="glyphicon glyphicon-user"></span> MyBookings</a></li>
+                <li><a href="/signout"><span class="glyphicon glyphicon-user"></span> SignOut</a></li>
+
+                {%else%}
+
+                <li><a href="/login"><span class="glyphicon glyphicon-user"></span> Login</a></li>
+                <li><a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+
+                {%endif%}
+            
+            </ul>
+        </div>
+        </div>
+    </nav>
+
+    {%block content%}
+    <div class="sec" id="sec1">
+        <br><br><br><br><br><br>
+        <h1>HOTEL PARADISE
+        <span>!!You Deserve A Vacation!!</span></h1>
+    </div>
+    
+    <div id="sec2">
+        <h1 style="text-align:center; font-size:50px; text-transform:uppercase; color:#ccc; letter-spacing:1px;
+        font-family:Playfair Display, serif; font-weight:400;">Testimonials</h1>
+        <div class="container" id="k">
+            <div class="carousel">
+                <div class="slider">
+                    <section><table><tr>
+                        <td>The rooms were clean, very comfortable, and the staff was amazing. They went over and beyond to help make our stay enjoyable. I highly recommend this hotel for anyone visiting downtown</td>
+                        </tr>
+                        <tr align="center"><td style="font-style:italic;font-size: 0.5cm;">!-->Pawan</td>
+                        </tr>
+                    </table></section>
+                    <section><table><tr>
+                        <td>They were extremely accommodating and allowed us to check in early at like 10am. We got to hotel super early and I didn’t wanna wait. So this was a big plus. The sevice was exceptional as well. Would definitely send a friend there.</td>
+                        </tr>
+                        <tr align="center"><td style="font-style:italic;font-size: 0.5cm;">!-->Himanshu</td>
+                        </tr>
+                    </table></section>
+                    <section><table><tr>
+                        <td>I had a wonderful experience at the Paradise. Every staff member I encountered, from the valet to the check- in to the cleaning staff were delightful and eager to help! Thank you! Will recommend to my colleagues!</td>
+                        </tr>
+                        <tr align="center"><td style="font-style:italic;font-size: 0.5cm;">!-->Virat</td>
+                        </tr>
+                    </table></section>
+                    <section><table><tr>
+                        <td>Took advantage of the downtown location to walk to dinner, check out a couple galleries, and have drinks. It was great. Service top notch as always. Bed comfort can not be beat</td>
+                        </tr>
+                        <tr align="center"><td style="font-style:italic;font-size: 0.5cm;">!-->Sameer</td>
+                        </tr>
+                    </table></section>
+                </div>
+                <div class="controls">
+                    <span class="arrow left"><i class="material-icons" > < </i></span>
+                    <span class="arrow right"><i class="material-icons"> > </i></span>
+                </div>
+            </div>    
+        </div><br>
+            <!--Images on testimonial-->
+            <div class="imagell">
+                <img src="media/Images/raft.jpg" class="imagell__img">
+                <div class="imagell__overlay image__overlay--blur">
+                    <div class="imagell__title">Rafting</div>
+                    <p class="imagell__desc">
+                        Adventure at Neral
+                    </p>
+                </div>
+            </div>
+            <div class="imagell">
+                <img src="media/Images/hill3.jpg" class="imagell__img">
+                <div class="imagell__overlay image__overlay--blur">
+                    <div class="imagell__title">Hills</div>
+                    <p class="imagell__desc">
+                        Sahyadris sizzling Ranges
+                    </p>
+                </div>
+            </div>
+            <div class="imagell">
+                <img src="media/Images/sun3.jpg" class="imagell__img">
+                <div class="imagell__overlay image__overlay--blur">
+                    <div class="imagell__title">Sunset</div>
+                    <p class="imagell__desc">
+                        Gazing view oof Sunset
+                    </p>
+                </div>
+            </div>
+            <div class="imagell">
+                <img src="media/Images/cas.jpg" class="imagell__img">
+                <div class="imagell__overlay image__overlay--blur">
+                    <div class="imagell__title">Casino</div>
+                    <p class="imagell__desc">
+                        Try your Luck here
+                    </p>
+                </div>
+            </div>
+                <!--IMages end-->
+        
+    </div>
+
+    <div id="sec3">
+        <h1 style="text-align:center; font-size:30px; text-transform:uppercase; color:white; letter-spacing:1px;
+        font-family:Playfair Display, serif; font-weight:400;">About Us</h1>
+        <p id="m" style="color: azure;text-align:justify;">
+            At Hotel Paradise we have India's Largest Meandering Pool with direct access to it from our luxurious executive rooms.
+        Just 1.5 hours away from Mumbai & Pune, situated on top of a hill with serene views of the green karjat convenient to travel & easy to reach from all modes. Falling in love with supremacy of nature is easy when everything around you is in the rhythm of it. Right from stepping in, you would witness a unique experience. The charming vibes, beautiful & unique trees, the huge meandering pool along with our other infinity pool & amenities with the modern look of the resort will take you to a different aura paired with the perfect hospitality to offer you a pleasant stay experience at one of the best resorts around you.
+        Our other beautiful infinity pool with breathtaking view of the greenery of Karjat is majestic aswell. Dive into the pool while you have the best views of lush green nature’s paradise at one of the unique resort near you.
+        </p>
+        <br/>
+        <div class="row">
+            <div class="column">
+                <img src="media/Images/a1.jpg" style="width: 100%;">
+            </div>
+            <div class="column">
+                <img src="media/Images/a2.jpg" style="width:100%;">
+            </div>
+        </div>
+        <table>
+            <tr>
+            </tr>
+        </table>
+    </div>
+
+    <div id="sec4">
+         <!--contact section start-->
+        <div class="contact-section" style="margin-top: 50px;">
+            <div class="contact-info">
+                <div><i class="fas fa-map-marker-alt"></i><a href="https://www.google.com/maps?q=Hotel+paradise+pimple+gurav+pune+maharashtra+India/zoom=13" >Near Central Park, Pune(442301) , India</a></div>
+                <!--<iframe name="" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d30275.241654077694!2d73.79148528474204!3d18.46529600000001!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc29568ed871231%3A0x4ab3199cd5bfc42b!2sHotel%20Paradise!5e0!3m2!1sen!2sin!4v1672665258600!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>-->
+                <div><i class="fas fa-envelope"></i>hotelparadise@email.com</iframe></div>
+                <div><i class="fas fa-phone"></i>+25 4556 5889 8779</div>
+                <div><i class="fas fa-clock"></i>We are available 24*7 for you</div>
+            </div> 
+            <div class="contact-form">
+                <h2>Contact Us</h2>
+                <form class="contact" action="" method="post">
+                    <input type="text" name="name" class="text-box" placeholder="Your Name" required></input>
+                    <input type="email" name="email" class="text-box" placeholder="Your Email" required></input>
+                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                    <button type="submit" class="send-btn" >Send</input>
+                </form>
+            </div>
+            <div class="popup" id="popup">
+                <img src="media/Images/tick.jpg">
+                <h2>Thank You</h2>
+                <p>Your details has been successfully submitted.Thanks!
+                </p>
+                <button type="button" class="bun">Ok</button>
+            </div>
+        </div>
+        <!--popup-->
+    </div>
+{%endblock%}
+{%block footer%}
+<footer class="container-fluid text-center" style="background-color: rgb(11, 12, 13);color:white;height: 5cm;">
+    <p style="margin-top:6px">Copyright @ 2022 | All rights reserved Hotel Paradise</p>  
+    <form class="form-inline">Get deals:
+        <input type="email" class="form-control" size="50" placeholder="Email Address">
+        <button type="button" class="btn btn-danger">Sign Up</button>
+    </form>
+    <div style="text-align: left;margin-left: 1cm;float: left;"><h4>our branches</h4>Ahmedabad<br>Pune<br>Mumbai</div>
+    <div style="float:left;margin-left: 5cm;"><h4>our Socials</h4><a href="instagram/hotelParadise">Instagram</a><br><a href="facebook/hotelParadise">Facebook</a><br><a href="twitter/hotelParadise">Twitter</a></div>
+    <div style="float: left;margin-left: 9cm;margin-top: 1cm;font-size: 25px;"><a href="">Sitemap</a> | <a href="">Terms & Conditions</a> | <a href="">Help Center</a> | <a href="">Gallery</a></div>
+</footer>
+{%endblock%}
+
+</body>
+</html>
+
+
+
+
+    <!--contact section end-->
+    
+    <!--<div id="sec5">
+        <div class="container">    
+          <div class="row">
+            {%for room in rooms%}
+            <div class="col-sm-4">
+              <div class="panel panel-primary">
+                <div class="panel-heading">{{room.cat}}</div>
+                <div class="panel-body">
+                  <img src="{{room.rimage.url}}" class="img-responsive" style="width:280px;height:250px" alt="Image"></a></center></div>
+                <div class="panel-footer">
+                  <p>Price : {{room.rprice}}</p>
+                  <a href="/viewdetails/{{room.id}}">View Details</a>                                                        
+                </div>
+              </div>
+            </div>
+            {%endfor%}
+          </div>
+        </div><br><br>
+    </div>-->
+  
+
+    
+    
+    
+
+
+  <!--
+  
+  <br><br/>
+  <footer class="container-fluid text-center">
+    <p>Online Store Copyright</p>  
+    <form class="form-inline">Get deals:
+      <input type="email" class="form-control" size="50" placeholder="Email Address">
+      <button type="button" class="btn btn-danger">Sign Up</button>
+    </form>
+  </footer>-->
+
+
+<!--<div class="card">
+            <img src="media/Images/home3.jpg" alt="Denim Jeans" style="width:1100px;height: 160px;"><br><br>
+            <center><form class="info">
+                    <table align="center"  style="height: 1.5cm;">
+                        <tr>
+                            <th style="color:aqua">Check In</th>
+                            <th style="color:aqua">Check Out</th>
+                        </tr>
+                        <tr><td ><input type="date" placeholder="DD-MM-YYYY" name="Check_in"></td>
+                            <td><input type="date" placeholder="DD-MM-YYYY" name="Check_out"></td></tr>
+                    </table>
+            </form></center><br>
+    
+            <p><button> Search Rooms</button></p>
+          </div>
+        
+        
+           .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 1100px;
+    
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+    }
+
+    .form {
+    align-content: center;
+    }
+
+    .card button {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+    }
+
+    .card button:hover {
+    opacity: 0.7;
+    }
+    .info{
+        background-color:#0b2447;
+        
+    }
+        
+        -->

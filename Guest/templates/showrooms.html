@@ -1,0 +1,34 @@
+{%extends "homepage.html"%}
+{%block content%}
+<style>
+  #d{
+    /*background-color:#0b2447;*/
+    /*background-color:#0B0c10;*/
+    background-image: url("/media/Images/back.jpg");
+    background-size: cover;
+    
+    
+  }
+  .col-sm-4:hover {
+      transform: scale(1.03);
+  }
+</style>
+<div id="d">
+    <div class="container" >    
+      <div class="row" style=" margin-left: 3px;margin-top: 80px;margin-right: 3px;">
+        {%for room in rooms%}  
+        <div class="col-sm-4">
+          <div class="panel panel-primary">
+            <div class="panel-heading" style="background-color:darkslategrey;">{{room.rno}}</div>
+            <div class="panel-body">
+              <img src="{{room.rimage.url}}" class="img-responsive" style="width:300px;height:240px;margin-left: 6.3px;" alt="Image"></a></center></div>
+            <div class="panel-footer" style="background-color:darkslategrey;color: white;">
+              <p>Price : {{room.rprice}} INR</p>
+              <a href="/viewdetails/{{room.id}}" style="color:cornflowerblue ;">View Details</a>                                                        
+            </div>
+          </div>
+        </div>
+        {%endfor%}
+      </div>
+    </div>
+{%endblock%}

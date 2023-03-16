@@ -1,0 +1,158 @@
+{%extends "homepage.html"%}
+{%block content%}
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif
+    
+}
+#d{
+    background-image: url('media/Images/back.jpg');
+    background-size: cover;
+    height: 750px;
+
+}
+.pic {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.table thead {
+    background-color: #21cf95;
+}
+
+.table thead th {
+    padding: 30px;
+    font-size: 14px;
+    color: white;
+}
+
+
+.container .table-wrap {
+
+    margin: 20px auto;
+    overflow-x: auto;
+    
+}
+
+.container .table-wrap::-webkit-scrollbar {
+    height: 5px;
+}
+
+.container .table-wrap::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-image: linear-gradient(to right, #5D7ECD, #0C91E6);
+}
+
+.table>:not(caption)>*>* {
+    padding: 2rem 0.5rem;
+}
+
+.input {
+    width: 30px;
+    height: 30px;
+    color: black;
+    font-weight: 600;
+    outline: none;
+    padding: 8px;
+}
+
+::placeholder {
+    color: black;
+    font-weight: 600;
+}
+
+
+.table tbody td {
+    padding: 30px;
+    margin: 0;
+    font-size: 14.5px;
+    font-weight: 600;
+}
+
+.table tbody td .fa-times {
+    color: #D32F2F;
+}
+
+
+.text-muted {
+    font-size: 12.5px;
+}
+
+.table tbody tr td:nth-of-type(3) {
+    /*min-width: 320px;*/
+    width: 320px;
+}
+
+@media(min-width: 992px) {
+    .container .table-wrap {
+        overflow: hidden;
+    }
+}
+
+#j{
+    background-color:bisque;
+    height: 650px;
+}
+</style>
+<br><br>
+    <div id="d">
+        <div class="container" id="j">
+        <div class="table-wrap">
+            <table class="table table-responsive table-borderless" style="background-color: azure;">
+                <thead>
+                    <th>Room No</th>
+                    <th>Image</th>
+                    <th>Service</th>
+                    <th>Check_In</th>
+                    <th>Check_Out</th>
+                    <th>Price</th>
+                    <th>Status</th>
+                </thead>
+                <tbody>
+                    {%for book in booking%}
+                    <form method="post"  action="/mybooking">
+                        {%csrf_token%}
+                    <tr class="align-middle alert border-bottom" role="alert">
+                        <td><div>{{book.rno}}<input type="hidden" name="rno" value="{{book.rno}}"></div>
+                        </td>
+                        <td class="text-center">
+                            <img class="pic"
+                                src="{{book.rno.rimage.url}}"
+                                alt="">
+                        </td>
+                        <td>
+                            <div>
+                                <p class="m-0 fw-bold">{{book.rno.rservices}}</p>
+                                
+                            </div>
+                        </td>
+                        <td>
+                            <div class="fw-600">{{book.check_in}}<input type="hidden" name="bookcheck_in" value="{{book.check_in}}"></div>
+                        </td>
+                        <td>
+                            <div class="fw-600">{{book.check_out}}<input type="hidden" name="bookcheck_out" value="{{book.check_out}}"></div>
+                        </td>
+                        
+                        <td>
+                            {{book.rprice}}<input type="hidden" name="iid" value="{{book.id}}">
+                        </td>
+                        <td>
+                            <div class="btn" data-bs-dismiss="alert">
+                                <span><button class="btn btn-danger" type="submit" onclick="return confirm('Are you sure you want to cancel booking for Room no {{book.rno}}?')">Cancel Booking</button></span>
+                            </div>
+                        </td>
+                    </tr>
+                    <input type="hidden" name="iid" value="{{book.id}}">
+                    </form>
+                {%endfor%}
+        </div>
+{%endblock%}
+{%block footer%}
+{%endblock%}

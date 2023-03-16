@@ -1,0 +1,106 @@
+{%extends "homepage.html"%}
+{%block content%}
+
+
+<style>
+    #h{
+       /*background-color:rgb(90, 147, 128);*/
+       height: 750px;
+       /*background-color:#0B0c10;*/
+       background-image: url("/media/Images/back.jpg");
+        background-size: cover;
+
+    }
+    .check:hover {
+      transform: scale(1.10);
+  }
+</style>
+<!--{% if messages %}
+    {%for message in messages%}
+<div class="alert alert-success alert-dismissible">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Search Failed</strong>
+</div>
+{%endfor%}
+{%endif%}-->
+
+
+
+<div id="h">
+    <h2 style="margin-top:0px">l</h2> <br><br>
+    <form method="post" action="/searchavailability">
+    {%csrf_token%}
+        {%for message in messages%}
+            <div class="alert alert-danger alert-dismissible" style="text-align: center;height: 1.2cm;width: 1300px;margin-left:110px;justify-items: center;"><strong>{{message}}</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button></div>
+           {%endfor%}
+    <table class="table" border="3" style="margin-left:110px;width: 1300px;color: black;background-color:teal;">
+        
+        <!--<tr>    
+            <td colspan="2" >
+            </td>
+           
+        </tr>-->
+        <tr>
+            <td style="font-style:italic ;font-size: larger;">Category</td>
+            <td>{{room.cat}}</td>
+        </tr>
+            <td style="font-style:italic ;font-size: larger;">Room No</td>
+            <td>{{room.rno}}<input type="hidden" name="rno" value="{{room.rno}}"/></td>
+        </tr>  
+        <tr>
+            <td style="font-style:italic ;font-size: larger;">Price</td>
+            <td>{{room.rprice}}</td>
+        </tr>
+        <tr>
+            <td style="font-style:italic ;font-size: larger;">Room Description</td>
+            <td>{{room.rdescription}}</td>
+        </tr>
+        <tr>
+            <td style="font-style:italic ;font-size: larger;">Room Services</td>
+            <td>{{room.rservices}}</td>
+        </tr>
+        <tr ><td colspan="2"><center><img src="{{room.rimage.url}}"></center></td></tr>
+        
+        </table>
+        <center><!--<form class="info">-->
+            <table align="center"  style="padding: 10px;">
+                <tr>
+                    <th style="color:aqua">Check In</th>
+                    <th style="color:aqua">Check Out</th>
+                </tr>
+                <tr><td ><input type="date" placeholder="DD-MM-YYYY" id="check_in" name="check_in" required></td>
+                    <td><input type="date" placeholder="DD-MM-YYYY" id="check_out" name="check_out" required></td></tr>
+                <input type="hidden" name="rno" value="{{room.rno}}"/>
+                <tr align="center" style="height:2cm"><td colspan="2"><input type="submit" class="check" value="Check Availability " style="width:4cm;background-color: royalblue;color: aliceblue;"/></td></tr>
+            </table>
+        </center>
+    </form>
+</div>
+
+<!--for disabling the previous dates-->
+<script defer type="text/javascript">
+    $(function(){
+        var dtToday = new Date();
+     
+        var month = dtToday.getMonth() + 1;
+        var day = dtToday.getDate();
+        var year = dtToday.getFullYear();
+        if(month < 10)
+            month = '0' + month.toString();
+        if(day < 10)
+         day = '0' + day.toString();
+        var maxDate = year + '-' + month + '-' + day;
+        $('#check_in').attr('min', maxDate);
+        $('#check_out').attr('min', maxDate);
+
+    });
+    </script>
+{%endblock%}
+    
+
+<!--<center><p><a href="/searchavailability/{{room.rno}}" style="background-color: wheat">Search Availability</a></p></center>-->
+
+
